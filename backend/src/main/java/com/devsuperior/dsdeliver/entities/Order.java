@@ -28,13 +28,13 @@ public class Order implements Serializable{
 	private Double longitude;
 	private Instant moment;
 	private OrderStatus status;
-	private Double total;
+
 	
 	@ManyToMany
 	@JoinTable(name = "tb_order_product",
 		joinColumns = @JoinColumn(name = "order_id"),
 		inverseJoinColumns = @JoinColumn(name = "product_id"))
-	private Set <Product> Product = new HashSet<>();
+	private Set <Product> products = new HashSet<>();
 	
 	public Order() {
 		
@@ -49,7 +49,6 @@ public class Order implements Serializable{
 		this.longitude = longitude;
 		this.moment = moment;
 		this.status = status;
-		this.total = total;
 	}
 
 	public Long getId() {
@@ -100,16 +99,8 @@ public class Order implements Serializable{
 		this.status = status;
 	}
 
-	public Double getTotal() {
-		return total;
-	}
-
-	public void setTotal(Double total) {
-		this.total = total;
-	}
-
 	public Set<Product> getProduct() {
-		return Product;
+		return products;
 	}
 
 	@Override
