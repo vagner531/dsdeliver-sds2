@@ -5,3 +5,9 @@ export type Product = {
   description: number,
   imageUri: string;
 }
+
+export type Orderlocationdata = {
+  address: string,
+  latitude: number,
+  longitude: number,
+}
